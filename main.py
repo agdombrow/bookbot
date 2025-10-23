@@ -6,7 +6,7 @@ def main():
         print(f"Word count: {word_count(file_contents)}")
 
         char_count = character_count(file_contents)
-        print(f"Character count: {char_count}")
+        # print(f"Character count: {char_count}")
 
 
 
@@ -26,6 +26,13 @@ def character_count(str):
             char_count[char] += 1
         else:
             char_count[char] = 1
+
+
+
+    for char in char_count:
+        if char.isalpha():
+            print(f"The '{char}' was found {char_count[char]} times")
+
 
     return char_count
 
