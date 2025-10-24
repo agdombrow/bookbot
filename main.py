@@ -1,44 +1,19 @@
+from stats import word_count, character_count
+
 def main():
-    with open("books/frankenstein.txt") as f:
-        file_contents = f.read()
+    book_text = get_book_text("books/frankenstein.txt")
+
+    # print(f"Word count: {word_count(file_contents)}")
+    print(f"Found {word_count(book_text)} total words")
+
+    char_count = character_count(book_text)
+    # print(f"Character count: {char_count}")
+
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
+        # file_contents = f.read()
         # print(file_contents)
-
-        print(f"Word count: {word_count(file_contents)}")
-
-        char_count = character_count(file_contents)
-        # print(f"Character count: {char_count}")
-
-
-
-def word_count(str):
-    words = str.split()
-    return len(words)
-
-
-
-def character_count(str):
-    lowered_str = str.lower()
-
-    char_count = {}
-
-    for char in lowered_str:
-        if char in char_count:
-            char_count[char] += 1
-        else:
-            char_count[char] = 1
-
-
-
-    for char in char_count:
-        if char.isalpha():
-            print(f"The '{char}' was found {char_count[char]} times")
-
-
-    return char_count
-
-
-
-
 
 
 main()
